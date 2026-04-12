@@ -25,7 +25,7 @@
         .dropdown { position:relative; display:inline-block; }
         .dropdown-content { display:none; position:absolute; top:30px; left:0; background:white; min-width:170px; box-shadow:0 5px 15px rgba(0,0,0,0.12); border-radius:10px; z-index:999; }
         .dropdown-content a { display:block; padding:10px 15px; margin-left:0 !important; color:#333 !important; font-size:13px !important; }
-        .dropdown:hover .dropdown-content { display:block; }
+        @media (min-width: 769px) { .dropdown:hover .dropdown-content { display:block; } }
         .register-btn { background:#2ecc71 !important; color:white !important; padding:8px 18px !important; border-radius:8px; margin-left:15px; }
 
         /* HERO */
