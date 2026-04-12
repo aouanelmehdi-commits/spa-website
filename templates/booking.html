@@ -25,6 +25,16 @@
         .dropdown-content { display:none; position:absolute; top:30px; left:0; background:white; min-width:170px; box-shadow:0 5px 15px rgba(0,0,0,0.12); border-radius:10px; z-index:999; }
         .dropdown-content a { display:block; padding:10px 15px; margin-left:0 !important; color:#333 !important; font-size:13px !important; }
         .dropdown:hover .dropdown-content { display:block; }
+        .dropdown-content {
+            position: static !important;
+            box-shadow: none !important;
+            display: none !important;
+            background: #f9f9f9 !important;
+            border-radius: 0 !important;
+}
+        .dropdown-content.open {
+            display: block !important;
+}
 
         /* HERO BANNER */
         .page-hero {
@@ -132,8 +142,12 @@
     <!-- NAVBAR -->
     <header class="navbar">
         <h1 class="logo">Spa Center</h1>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-<nav class="nav-menu" id="nav-menu">
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
             <a href="/">Home</a>
             <div class="dropdown"><a href="/#services">Services ▾</a>
                 <div class="dropdown-content">

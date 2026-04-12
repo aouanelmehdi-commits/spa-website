@@ -170,8 +170,12 @@
     <!-- NAVBAR -->
     <header class="navbar">
         <h1 class="logo">Spa Center</h1>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-<nav class="nav-menu" id="nav-menu">
+        <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+     <nav class="nav-menu" id="nav-menu">
     
 
             <div class="dropdown">
@@ -334,6 +338,16 @@
     .footer-main { padding:30px 15px 0; }
     .footer-grid { grid-template-columns:1fr; }
     .auth-box { padding:25px 15px; margin:15px; }
+}
+    .dropdown-content {
+    position: static !important;
+    box-shadow: none !important;
+    display: none !important;
+    background: #f9f9f9 !important;
+    border-radius: 0 !important;
+}
+    .dropdown-content.open {
+    display: block !important;
 }
 </style>
 <script>
