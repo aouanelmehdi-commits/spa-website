@@ -396,8 +396,31 @@
 <script>
     const btn = document.getElementById('hamburger');
     const menu = document.getElementById('nav-menu');
+
+    // Toggle menu on hamburger click
     btn.addEventListener('click', () => {
         menu.classList.toggle('open');
+    });
+
+    // Close menu when any link is clicked
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('open');
+        });
+    });
+
+    // Close menu when scrolling down
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            menu.classList.remove('open');
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('open');
+        }
     });
 </script>
 </body>
