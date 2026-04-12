@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Poppins',sans-serif; padding-top:70px; }
+
+        /* NAVBAR */
+        .navbar {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:18px 50px; background:white;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            position:fixed; top:0; left:0; width:100%; z-index:9999;
+        }
+        .logo { font-size:22px; color:#2ecc71; letter-spacing:1px; font-weight:700; }
+        nav { display:flex; align-items:center; }
+        .navbar nav a { margin-left:25px; text-decoration:none; color:#333; font-size:14px; font-weight:500; transition:color 0.2s; }
+        .navbar nav a:hover { color:#2ecc71; }
+        .dropdown { position:relative; display:inline-block; }
+        .dropdown-content { display:none; position:absolute; top:30px; left:0; background:white; min-width:170px; box-shadow:0 5px 15px rgba(0,0,0,0.12); border-radius:10px; z-index:999; }
+        .dropdown-content a { display:block; padding:10px 15px; margin-left:0 !important; color:#333 !important; font-size:13px !important; }
+        .dropdown:hover .dropdown-content { display:block; }
+        .register-btn { background:#2ecc71 !important; color:white !important; padding:8px 18px !important; border-radius:8px; margin-left:15px; }
+
+        /* HERO */
+        .hero {
+            height:90vh;
+            background:linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+                url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1400") center/cover no-repeat;
+            display:flex; align-items:center; justify-content:center;
+            color:white; text-align:center;
+        }
+        .hero h2 { font-size:42px; text-shadow:0 2px 8px rgba(0,0,0,0.4); }
+        .hero p  { margin-top:10px; font-size:16px; opacity:0.9; }
+        .hero button {
+            margin-top:20px; padding:13px 32px; border:none;
+            background:#2ecc71; color:white; cursor:pointer;
+            border-radius:8px; font-size:16px; font-family:'Poppins',sans-serif;
+            font-weight:500; transition:background 0.2s;
+        }
+        .hero button:hover { background:#27ae60; }
+
+        /* SERVICES */
+        .services { padding:70px 60px; text-align:center; background:#f5f7f6; }
+        .services h2 { font-size:30px; color:#2c3e50; margin-bottom:8px; }
+        .service-container { display:flex; justify-content:center; gap:30px; margin-top:35px; flex-wrap:wrap; }
+        .card { background:white; width:280px; border-radius:15px; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,0.1); transition:transform 0.3s; }
+        .card:hover { transform:translateY(-10px); }
+        .card img { width:100%; height:180px; object-fit:cover; }
+        .card h3  { margin:15px 15px 8px; }
+        .card p   { margin:0 15px 15px; color:gray; font-size:14px; }
+        .card-btn { display:block; margin:0 15px 20px; padding:10px; background:#2ecc71; color:white; text-align:center; text-decoration:none; border-radius:8px; font-size:14px; font-weight:500; transition:background 0.2s; }
+        .card-btn:hover { background:#27ae60; }
+
+        /* ADVANTAGES */
+        .advantages {
+            padding:80px 40px; text-align:center;
+            background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+                url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1400") center/cover no-repeat;
+            color:white;
+        }
+        .advantages h2 { font-size:32px; margin-bottom:10px; color:white; }
+        .advantages > p { color:rgba(255,255,255,0.75); margin-bottom:60px; font-size:15px; }
+        .advantages-layout { display:flex; align-items:center; justify-content:center; gap:50px; flex-wrap:wrap; }
+        .adv-column { display:flex; flex-direction:column; gap:30px; align-items:center; }
+        .adv-circle { width:145px; height:145px; border-radius:50%; background:rgba(255,255,255,0.1); border:3px solid #2ecc71; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:15px; transition:all 0.3s; backdrop-filter:blur(4px); }
+        .adv-circle:hover { background:#2ecc71; transform:scale(1.08); }
+        .adv-circle i { font-size:28px; color:#2ecc71; margin-bottom:8px; transition:color 0.3s; }
+        .adv-circle:hover i { color:white; }
+        .adv-circle p { font-size:12px; font-weight:500; color:white; text-align:center; line-height:1.4; }
+        .adv-center-img { width:270px; height:270px; border-radius:50%; object-fit:cover; border:6px solid #2ecc71; box-shadow:0 0 40px rgba(46,204,113,0.4); flex-shrink:0; }
+
+        /* FOOTER */
+        .footer-main {
+            background:#1a2634;
+            padding:70px 80px 0;
+        }
+        .footer-grid {
+            display:grid;
+            grid-template-columns:1.8fr 1fr 1fr 1.4fr;
+            gap:50px;
+            padding-bottom:50px;
+            border-bottom:1px solid rgba(255,255,255,0.08);
+        }
+        .footer-brand .brand-name {
+            font-size:22px; font-weight:700;
+            color:#2ecc71; margin-bottom:16px; letter-spacing:1px;
+        }
+        .footer-brand p {
+            font-size:13px; line-height:1.9;
+            color:rgba(255,255,255,0.45); max-width:250px;
+        }
+        .footer-col h4 {
+            font-size:12px; font-weight:600; color:white;
+            margin-bottom:22px; text-transform:uppercase; letter-spacing:0.1em;
+        }
+        .footer-col ul { list-style:none; }
+        .footer-col ul li { margin-bottom:13px; }
+        .footer-col ul li a { text-decoration:none; color:rgba(255,255,255,0.45); font-size:13px; transition:color 0.2s; }
+        .footer-col ul li a:hover { color:#2ecc71; }
+        .footer-contact-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+        .footer-contact-item i { color:#2ecc71; font-size:14px; width:16px; }
+        .footer-contact-item span { font-size:13px; color:rgba(255,255,255,0.45); }
+        .footer-social { display:flex; gap:10px; margin-top:22px; }
+        .footer-social a {
+            width:36px; height:36px; border-radius:50%;
+            border:1px solid rgba(255,255,255,0.15);
+            display:flex; align-items:center; justify-content:center;
+            color:rgba(255,255,255,0.5); font-size:13px;
+            text-decoration:none; transition:all 0.2s;
+        }
+        .footer-social a:hover { background:#2ecc71; border-color:#2ecc71; color:white; }
+        .footer-bottom {
+            padding:22px 0;
+            text-align:center;
+            font-size:12px;
+            color:rgba(255,255,255,0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h1 class="logo">✦ Spa Center</h1>
+        <nav>
+            <a href="/">Home</a>
+            <div class="dropdown">
+                <a href="/#services">Services ▾</a>
+                <div class="dropdown-content">
+                    <a href="/#services">Hammam</a>
+                    <a href="/#services">Massage</a>
+                    <a href="/#services">Gommage Corps</a>
+                </div>
+            </div>
+            <a href="/booking/">Booking</a>
+            <a href="/contact/">Contact</a>
+            {% if user.is_authenticated %}
+                <a href="/dashboard/">My Bookings</a>
+                <a href="/logout/" style="color:#e74c3c;">Logout</a>
+            {% else %}
+                <a href="/login/">Login</a>
+                <a href="/register/" class="register-btn">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Relax Your Body & Mind</h2>
+            <p>Experience the best spa treatments in a calm environment</p>
+            <button onclick="window.location.href='/booking/'">Book Now</button>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600" alt="Hammam">
+                <h3>Hammam</h3>
+                <p>Traditional Moroccan hammam experience.</p>
+                <a href="/booking/" class="card-btn">Book Now</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600" alt="Massage">
+                <h3>Massage</h3>
+                <p>Relaxing full body massage.</p>
+                <a href="/booking/" class="card-btn">Book Now</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600" alt="Gommage Corps">
+                <h3>Gommage Corps</h3>
+                <p>Deep exfoliation for smooth skin.</p>
+                <a href="/booking/" class="card-btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section class="advantages">
+        <h2>Why Choose Us?</h2>
+        <p>Discover what makes our spa a place you'll never want to leave</p>
+        <div class="advantages-layout">
+            <div class="adv-column">
+                <div class="adv-circle"><i class="fa-solid fa-leaf"></i><p>100% Natural Products</p></div>
+                <div class="adv-circle"><i class="fa-solid fa-user-nurse"></i><p>Expert Therapists</p></div>
+                <div class="adv-circle"><i class="fa-solid fa-spa"></i><p>Authentic Moroccan Rituals</p></div>
+            </div>
+            <img class="adv-center-img" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600" alt="Relaxed person after spa">
+            <div class="adv-column">
+                <div class="adv-circle"><i class="fa-solid fa-clock"></i><p>Flexible Appointments</p></div>
+                <div class="adv-circle"><i class="fa-solid fa-shield-halved"></i><p>Private & Safe Space</p></div>
+                <div class="adv-circle"><i class="fa-solid fa-star"></i><p>5-Star Experience</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-main">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="brand-name">✦ Spa Center</div>
+                <p>Treat yourself to a moment of relaxation in an elegant and warm setting. Discover our exclusive treatments combining tradition and modernity for an unforgettable experience.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/booking/">Booking</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="/dashboard/">My Bookings</a></li>
+                    {% else %}
+                    <li><a href="/login/">Login</a></li>
+                    <li><a href="/register/">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Casablanca, Morocco</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+212 600000000</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>spa@email.com</span>
+                </div>
+                <div class="footer-social">
+                    <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Spa Center — All rights reserved. Casablanca, Morocco.
+        </div>
+    </footer>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/212709225519" target="_blank" class="whatsapp-float">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 9999;
+    transition: transform 0.2s;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+</style>
+</body>
+</html>

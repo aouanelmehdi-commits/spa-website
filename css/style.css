@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f5f7f6, #e8f5e9);
+}
+
+/* NAVBAR — sticky so it follows on scroll */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    color: #2ecc71;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.navbar a:hover {
+    color: #2ecc71;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 40px;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 12px 28px;
+    border: none;
+    background: #2ecc71;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.hero button:hover {
+    background: #27ae60;
+}
+
+/* SERVICES */
+.services {
+    padding: 60px;
+    text-align: center;
+    background: #f5f7f6;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    width: 280px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 15px;
+}
+
+.card p {
+    margin-bottom: 20px;
+    color: gray;
+}
+
+/* ADVANTAGES SECTION */
+.advantages {
+    padding: 80px 60px;
+    text-align: center;
+    background: white;
+}
+
+.advantages h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.advantages > p {
+    color: gray;
+    margin-bottom: 60px;
+    font-size: 15px;
+}
+
+.advantages-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.adv-column {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.adv-circle {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    background: #f0faf5;
+    border: 3px solid #2ecc71;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    transition: 0.3s;
+    cursor: default;
+}
+
+.adv-circle:hover {
+    background: #2ecc71;
+    transform: scale(1.08);
+}
+
+.adv-circle:hover i,
+.adv-circle:hover p {
+    color: white;
+}
+
+.adv-circle i {
+    font-size: 28px;
+    color: #2ecc71;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.adv-circle p {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2c3e50;
+    text-align: center;
+    line-height: 1.4;
+    transition: color 0.3s;
+}
+
+.adv-center-img {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #2ecc71;
+    box-shadow: 0 10px 40px rgba(46,204,113,0.25);
+    flex-shrink: 0;
+}
+
+/* BOOKING PAGE */
+.booking-page {
+    padding: 60px;
+    text-align: center;
+}
+
+.call-icon {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #2ecc71;
+}
+
+.call-icon i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.booking-form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form input,
+.booking-form select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+.booking-form button {
+    padding: 12px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.booking-form button:hover {
+    background: #27ae60;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: black;
+    margin-left: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* CONTACT PAGE */
+.contact-page {
+    display: flex;
+    padding: 60px;
+    gap: 50px;
+}
+
+.contact-info {
+    width: 40%;
+}
+
+.info-box {
+    margin-bottom: 30px;
+}
+
+.info-box i {
+    font-size: 30px;
+    color: #2ecc71;
+}
+
+.contact-form {
+    width: 60%;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form button {
+    padding: 12px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.contact-form button:hover {
+    background: #27ae60;
+}
+
+/* ── FOOTER ── */
+.footer-main {
+    background: #2c3e50;
+    color: #ccc;
+    padding: 60px 80px 30px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+.footer-brand .brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.footer-brand p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    max-width: 250px;
+}
+.footer-col h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: #2ecc71; }
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.footer-contact-item i { color: #2ecc71; font-size: 14px; }
+.footer-contact-item span { font-size: 13px; color: rgba(255,255,255,0.6); }
+.footer-social { display: flex; gap: 10px; margin-top: 20px; }
+.footer-social a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.footer-social a:hover {
+    background: #2ecc71;
+    border-color: #2ecc71;
+    color: white;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+}
