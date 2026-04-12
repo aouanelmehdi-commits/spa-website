@@ -291,6 +291,50 @@
     transition: transform 0.2s;
 }
 .whatsapp-float:hover { transform: scale(1.1); }
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+
+    .navbar { padding:12px 15px; }
+    .logo { font-size:16px; }
+    .navbar nav a { margin-left:6px; font-size:11px; }
+    .register-btn { padding:5px 8px !important; font-size:11px !important; margin-left:6px; }
+
+    .hero { height:60vh; padding:0 15px; }
+    .hero h2 { font-size:22px; }
+    .hero p { font-size:13px; }
+    .hero button { padding:10px 20px; font-size:13px; }
+
+    .services { padding:35px 15px; }
+    .services h2 { font-size:22px; }
+    .service-container { flex-direction:column; align-items:center; gap:15px; }
+    .card { width:100%; max-width:320px; }
+
+    .advantages { padding:40px 15px; }
+    .advantages h2 { font-size:22px; }
+    .advantages > p { font-size:13px; margin-bottom:30px; }
+    .advantages-layout { flex-direction:column; gap:20px; }
+    .adv-column { flex-direction:row; flex-wrap:wrap; justify-content:center; gap:12px; }
+    .adv-circle { width:110px; height:110px; }
+    .adv-circle i { font-size:20px; }
+    .adv-circle p { font-size:10px; }
+    .adv-center-img { width:180px; height:180px; }
+
+    .footer-main { padding:30px 15px 0; }
+    .footer-grid { grid-template-columns:1fr; gap:20px; }
+    .footer-brand p { font-size:12px; }
+    .footer-col ul li a { font-size:12px; }
+
+    .whatsapp-float { width:45px; height:45px; font-size:22px; bottom:20px; right:15px; }
+}
+
+@media (max-width: 390px) {
+    .logo { font-size:14px; }
+    .navbar nav a { font-size:10px; margin-left:4px; }
+    .hero h2 { font-size:19px; }
+    .adv-circle { width:95px; height:95px; }
+    .adv-center-img { width:150px; height:150px; }
+}
+
 </style>
 </body>
 </html>
