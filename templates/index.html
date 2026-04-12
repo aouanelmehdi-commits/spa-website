@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -164,19 +165,19 @@
         <h2>Our Services</h2>
         <div class="service-container">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600" alt="Hammam">
+                <img src="{% static 'images/hammam.jpg' %}" alt="Hammam">
                 <h3>Hammam</h3>
                 <p>Traditional Moroccan hammam experience.</p>
                 <a href="/booking/" class="card-btn">Book Now</a>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600" alt="Massage">
+                <img src="{% static 'images/massage.jpg' %}" alt="Massage">
                 <h3>Massage</h3>
                 <p>Relaxing full body massage.</p>
                 <a href="/booking/" class="card-btn">Book Now</a>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600" alt="Gommage Corps">
+                <img src="{% static 'images/gommage.jpg' %}" alt="Gommage Corps">
                 <h3>Gommage Corps</h3>
                 <p>Deep exfoliation for smooth skin.</p>
                 <a href="/booking/" class="card-btn">Book Now</a>
