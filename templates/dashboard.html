@@ -65,14 +65,38 @@
             padding:6px 14px; border-radius:20px;
             font-size:12px; font-weight:600;
             background:#e8f8f0; color:#2ecc71;
+
         }
+        .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; background:none; border:none; padding:5px; }
+.hamburger span { width:25px; height:2px; background:#333; border-radius:2px; }
+.nav-menu { display:flex; align-items:center; }
+@media (max-width: 768px) {
+    .hamburger { display:flex; }
+    .nav-menu { display:none; flex-direction:column; width:100%; background:white; padding:15px 0; border-top:1px solid #eee; }
+    .nav-menu.open { display:flex; }
+    .nav-menu a { margin-left:0 !important; padding:10px 20px; font-size:14px !important; width:100%; }
+    .navbar { flex-wrap:wrap; padding:15px 20px; }
+    .page-hero { height:180px; }
+    .page-hero h2 { font-size:24px; }
+    .booking-section, .contact-section { flex-direction:column; padding:25px 15px; }
+    .booking-info, .contact-left { width:100%; max-width:100%; }
+    .booking-form-wrap, .contact-form-wrap { width:100%; padding:20px 15px; }
+    .form-row { flex-direction:column; }
+    .dashboard { padding:0 15px; }
+    .welcome { flex-direction:column; text-align:center; }
+    .booking-card { flex-direction:column; }
+    .footer-main { padding:30px 15px 0; }
+    .footer-grid { grid-template-columns:1fr; }
+    .auth-box { padding:25px 15px; margin:15px; }
+}
     </style>
 </head>
 <body>
 
     <header class="navbar">
         <span class="logo">✦ Spa Center</span>
-        <nav>
+       <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+<nav class="nav-menu" id="nav-menu">
             <a href="/">Home</a>
             <a href="/booking/">New Booking</a>
             <a href="/contact/">Contact</a>
@@ -155,6 +179,10 @@
         {% endif %}
 
     </div>
-
+<script>
+    const h = document.getElementById('hamburger');
+    const n = document.getElementById('nav-menu');
+    if(h) { h.addEventListener('click', () => { n.classList.toggle('open'); }); }
+</script>
 </body>
 </html>
