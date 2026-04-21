@@ -72,9 +72,11 @@ def booking_view(request):
             )
             return redirect('booking_success')
         except Exception as e:
-            print("BOOKING ERROR:", e)
             return render(request, 'booking.html', {'error': str(e)})
-    return render(request, 'booking.html')
+    
+    # Get service from URL if coming from services section
+    selected_service = request.GET.get('service', '')
+    return render(request, 'booking.html', {'selected_service': selected_service})
 
 def booking_success(request):
     return render(request, 'booking_success.html')

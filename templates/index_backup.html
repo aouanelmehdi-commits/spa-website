@@ -24,23 +24,10 @@
         .navbar nav a:hover { color:#2ecc71; }
         .dropdown { position:relative; display:inline-block; }
         .dropdown-content { display:none; position:absolute; top:30px; left:0; background:white; min-width:170px; box-shadow:0 5px 15px rgba(0,0,0,0.12); border-radius:10px; z-index:999; }
-        .dropdown-content a {
-    display: block !important;
-    padding: 12px 18px !important;
-    color: #333 !important;
-    font-size: 13px !important;
-    text-decoration: none !important;
-    margin-left: 0 !important;
-    border-bottom: 1px solid #f5f5f5;
-    transition: all 0.25s ease;
-    border-left: 3px solid transparent;
-}
-.dropdown-content a:hover {
-    background: #f0faf5 !important;
-    color: #2ecc71 !important;
-    border-left: 3px solid #2ecc71 !important;
-    padding-left: 22px !important;
-}
+        .dropdown-content a { display:block; padding:10px 15px; margin-left:0 !important; color:#333 !important; font-size:13px !important; }
+        @media (min-width: 769px) { .dropdown:hover .dropdown-content { display:block; } }
+        .register-btn { background:#2ecc71 !important; color:white !important; padding:8px 18px !important; border-radius:8px; margin-left:15px; }
+
         /* HERO */
         /* ── HERO SLIDER ── */
 .hero {
@@ -224,7 +211,6 @@
     box-shadow: 0 5px 20px rgba(46,204,113,0.4);
     transform: translateY(-2px);
 }
-.dropdown-content.open { display: block !important; }
     </style>
 </head>
 <body>
@@ -243,10 +229,10 @@
         <div class="dropdown">
             <a href="javascript:void(0)">Services ▾</a>
             <div class="dropdown-content" id="services-dropdown">
-    <a href="javascript:void(0)" onclick="goToService('hammam')">Hammam</a>
-    <a href="javascript:void(0)" onclick="goToService('massage')">Massage</a>
-    <a href="javascript:void(0)" onclick="goToService('gommage')">Gommage Corps</a>
-</div>
+                <a href="/#services" onclick="localStorage.setItem('tab','hammam')">Hammam</a>
+                <a href="/#services" onclick="localStorage.setItem('tab','massage')">Massage</a>
+                <a href="/#services" onclick="localStorage.setItem('tab','gommage')">Gommage Corps</a>
+            </div>
         </div>
         <a href="/booking/">Booking</a>
         <a href="/contact/">Contact</a>
@@ -641,25 +627,11 @@
         width: 100%;
     }
     .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: white;
-    min-width: 180px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    border-radius: 10px;
-    z-index: 999999;
-    overflow: hidden;
-    animation: fadeSlide 0.2s ease;
-}
-.dropdown-content.open { display: block !important; }
-.dropdown:hover .dropdown-content { display: block !important; }
-
-@keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+        position: static !important;
+        box-shadow: none !important;
+        display: block !important;
+        background: #f9f9f9 !important;
+    }
     .register-btn {
         margin: 10px 25px !important;
         padding: 10px !important;
@@ -667,26 +639,8 @@
         border-radius: 8px;
     }
 }
-html { scroll-behavior: smooth; }
 </style>
 <script>
-    function goToService(tab) {
-    // Close dropdown
-    document.getElementById('services-dropdown').classList.remove('open');
-    
-    // Switch to correct tab
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(tab).classList.add('active');
-    document.querySelectorAll('.tab-btn').forEach(b => {
-        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(tab)) {
-            b.classList.add('active');
-        }
-    });
-
-    // Smooth scroll to services section
-    document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-}
     // HAMBURGER
     const btn = document.getElementById('hamburger');
     const menu = document.getElementById('nav-menu');
@@ -695,21 +649,15 @@ html { scroll-behavior: smooth; }
     });
 
     // MOBILE DROPDOWN
-  // DROPDOWN — works on both click and hover
-const dropdown = document.querySelector('.dropdown > a');
-const dropdownContent = document.getElementById('services-dropdown');
+    const dropdown = document.querySelector('.dropdown > a');
+    const dropdownContent = document.getElementById('services-dropdown');
+    dropdown.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdownContent.classList.toggle('open');
+        }
+    });
 
-dropdown.addEventListener('click', (e) => {
-    e.preventDefault();
-    dropdownContent.classList.toggle('open');
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-        dropdownContent.classList.remove('open');
-    }
-});
     // CLOSE ON SCROLL
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) menu.classList.remove('open');

@@ -256,12 +256,12 @@
 
                 <div class="form-group">
                     <label>Select Service</label>
-                   <select name="service" required>
-                        <option value="">— Choose a service —</option>
-                        <option value="Hammam">Hammam</option>
-                        <option value="Massage">Massage</option>
-                        <option value="Gommage Corps">Gommage Corps</option>
-                    </select>
+                 <select name="service" required>
+                   <option value="">— Choose a service —</option>
+                   <option value="Hammam" {% if selected_service == 'Hammam' %}selected{% endif %}>Hammam</option>
+                   <option value="Massage" {% if selected_service == 'Massage' %}selected{% endif %}>Massage</option>
+                   <option value="Gommage Corps" {% if selected_service == 'Gommage+Corps' %}selected{% endif %}>Gommage Corps</option>
+                 </select>
                 </div>
 
                 <div class="form-row">
