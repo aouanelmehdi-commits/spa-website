@@ -30,8 +30,9 @@
             font-size:14px; outline:none; transition:border-color 0.2s;
         }
         .form-group input:focus { border-color:#2ecc71; }
-        .form-row { display:flex; gap:12px; }
-        .form-row .form-group { flex:1; }
+        .form-row { display: flex; gap: 12px; width: 100%; }
+.form-row .form-group { flex: 1; min-width: 0; overflow: hidden; }
+.form-row .form-group input { width: 100%; box-sizing: border-box; }
         .error { background:#ffeaea; color:#e74c3c; padding:10px 15px; border-radius:8px; font-size:13px; margin-bottom:16px; }
         .submit-btn {
             width:100%; padding:14px; background:#2ecc71; color:white;
