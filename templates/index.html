@@ -225,6 +225,25 @@
     transform: translateY(-2px);
 }
 .dropdown-content.open { display: block !important; }
+.card-price { font-size:13px; color:#2ecc71; font-weight:600; margin-bottom:12px; }
+.card-price i { margin-right:5px; }
+.card-price strong { font-size:15px; }
+.reviews { padding:80px 60px; background:#f5f7f6; text-align:center; }
+.reviews h2 { font-size:30px; color:#2c3e50; margin-bottom:8px; }
+.reviews-sub { color:gray; font-size:14px; margin-bottom:50px; }
+.reviews-container { display:flex; justify-content:center; gap:25px; flex-wrap:wrap; margin-bottom:50px; }
+.review-card { background:white; border-radius:16px; padding:25px; width:280px; box-shadow:0 5px 20px rgba(0,0,0,0.07); text-align:left; transition:transform 0.3s; }
+.review-card:hover { transform:translateY(-5px); }
+.review-header { display:flex; align-items:center; gap:12px; margin-bottom:15px; }
+.review-avatar { width:45px; height:45px; border-radius:50%; background:#2ecc71; color:white; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; flex-shrink:0; }
+.review-name { font-weight:600; font-size:14px; color:#2c3e50; }
+.review-stars { color:#f39c12; font-size:14px; margin-top:2px; }
+.review-text { font-size:13px; color:#666; line-height:1.7; margin-bottom:12px; font-style:italic; }
+.review-service { font-size:11px; font-weight:600; color:#2ecc71; text-transform:uppercase; letter-spacing:0.05em; }
+.reviews-summary { display:inline-flex; align-items:center; gap:15px; background:white; padding:20px 35px; border-radius:50px; box-shadow:0 5px 20px rgba(0,0,0,0.07); }
+.summary-score { font-size:42px; font-weight:700; color:#2c3e50; }
+.summary-stars { color:#f39c12; font-size:20px; }
+.summary-text { font-size:13px; color:gray; margin-top:3px; }
     </style>
 </head>
 <body>
@@ -325,6 +344,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 1h – 1h30</div>
                     <h3>Massage Californien</h3>
                     <p>Slow, fluid and enveloping movements for deep relaxation of body and mind.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>200 DH</strong></div>
                     <a href="/booking/?service=Massage" class="card-btn">Book Now</a>
 
                 </div>
@@ -336,6 +356,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 1h</div>
                     <h3>Massage Suédois</h3>
                     <p>Dynamic and invigorating, ideal for relieving muscle tension and boosting circulation.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>220 DH</strong></div>
                     <a href="/booking/?service=Massage" class="card-btn">Book Now</a>
                 </div>
             </div>
@@ -346,6 +367,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 1h – 1h30</div>
                     <h3>Deep Tissue Massage</h3>
                     <p>Deep pressure targeting chronic pain and muscle knots, perfect for athletes.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>220 DH</strong></div>
                     <a href="/booking/?service=Massage" class="card-btn">Book Now</a>
                 </div>
             </div>
@@ -364,6 +386,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 60 – 90 min</div>
                     <h3>Hammam Traditionnel</h3>
                     <p>Authentic Moroccan experience with hot steam rooms, black soap and traditional kessa glove scrub.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>150 DH</strong></div>
                     <a href="/booking/?service=Hammam" class="card-btn">Book Now</a>
                 </div>
             </div>
@@ -375,6 +398,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 60 – 90 min</div>
                     <h3>Hammam Privé Luxe</h3>
                     <p>Private luxury experience with full ritual — scrub, black soap, body wrap and relaxing massage.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>350 DH</strong></div>
                     <a href="/booking/?service=Hammam+Prive" class="card-btn">Book Now</a>
 
                 </div>
@@ -387,6 +411,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 10 – 20 min</div>
                     <h3>Séance Vapeur</h3>
                     <p>Pure steam session to open pores, detoxify the skin and deeply relax the body.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>80 DH</strong></div>
                     <a href="/booking/?service=Hammam" class="card-btn">Book Now</a>
 
                 </div>
@@ -408,6 +433,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 45 – 60 min</div>
                     <h3>Gommage Mécanique</h3>
                     <p>Natural grain scrub (apricot, sugar, coffee) applied in circular motions for smooth, glowing skin.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>120 DH</strong></div>
                     <a href="/booking/?service=Gommage+Corps" class="card-btn">Book Now</a>
                 </div>
             </div>
@@ -418,6 +444,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 45 min</div>
                     <h3>Gommage Enzymatique</h3>
                     <p>Gentle enzyme-based exfoliation using fruit extracts — perfect for sensitive and dry skin types.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>140 DH</strong></div>
                     <a href="/booking/?service=Gommage+Corps" class="card-btn">Book Now</a>
 
                 </div>
@@ -429,6 +456,7 @@
                     <div class="card-duration"><i class="fa-solid fa-clock"></i> 60 – 90 min</div>
                     <h3>Gommage Corps Complet</h3>
                     <p>Full body scrub ritual combining exfoliation, nourishing mask and moisturizing treatment.</p>
+                    <div class="card-price"><i class="fa-solid fa-tag"></i> From <strong>180 DH</strong></div>
                     <a href="/booking/?service=Gommage+Corps" class="card-btn">Book Now</a>
                 </div>
             </div>
@@ -456,7 +484,72 @@
             </div>
         </div>
     </section>
+<!-- REVIEWS -->
+<section class="reviews">
+    <h2>What Our Clients Say</h2>
+    <p class="reviews-sub">Real experiences from our valued guests</p>
 
+    <div class="reviews-container">
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">S</div>
+                <div>
+                    <div class="review-name">Sara El Amrani</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text">"The hammam experience was absolutely incredible. The staff was professional and the atmosphere was so relaxing. I left feeling completely renewed!"</p>
+            <div class="review-service">Hammam Privé Luxe</div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar" style="background:#3498db;">K</div>
+                <div>
+                    <div class="review-name">Karim Benali</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text">"Best massage I've ever had in Casablanca. The deep tissue massage really helped with my back pain. Highly recommend to anyone!"</p>
+            <div class="review-service">Deep Tissue Massage</div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar" style="background:#9b59b6;">L</div>
+                <div>
+                    <div class="review-name">Leila Mansouri</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text">"The gommage corps treatment left my skin so soft and glowing. The products are natural and the results are amazing. Will definitely come back!"</p>
+            <div class="review-service">Gommage Corps Complet</div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar" style="background:#e67e22;">Y</div>
+                <div>
+                    <div class="review-name">Youssef Tahiri</div>
+                    <div class="review-stars">★★★★☆</div>
+                </div>
+            </div>
+            <p class="review-text">"Great service and very clean facilities. The booking process was easy and the staff was welcoming. The Californien massage was so relaxing!"</p>
+            <div class="review-service">Massage Californien</div>
+        </div>
+
+    </div>
+
+    <div class="reviews-summary">
+        <div class="summary-score">4.9</div>
+        <div>
+            <div class="summary-stars">★★★★★</div>
+            <div class="summary-text">Based on 120+ reviews</div>
+        </div>
+    </div>
+
+</section>
     <!-- FOOTER -->
     <footer class="footer-main">
         <div class="footer-grid">
