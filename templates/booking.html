@@ -256,12 +256,18 @@
 
                 <div class="form-group">
                     <label>Select Service</label>
-                 <select name="service" required>
+<select name="service" id="main-service" onchange="showSubService(this.value)" required>
                    <option value="">— Choose a service —</option>
                    <option value="Hammam" {% if selected_service == 'Hammam' %}selected{% endif %}>Hammam</option>
                    <option value="Massage" {% if selected_service == 'Massage' %}selected{% endif %}>Massage</option>
                    <option value="Gommage Corps" {% if selected_service == 'Gommage+Corps' %}selected{% endif %}>Gommage Corps</option>
                  </select>
+                 <div class="form-group" id="sub-service-group" style="display:none;">
+    <label>Select Sub-Service</label>
+    <select name="sub_service" id="sub-service" style="padding:12px 15px;border:1.5px solid #e8e8e8;border-radius:10px;font-family:'Poppins',sans-serif;font-size:14px;width:100%;outline:none;background:#fafafa;">
+        <option value="">— Choose a sub-service —</option>
+    </select>
+</div>
                 </div>
 
                 <div class="form-row">
@@ -345,6 +351,28 @@
     const h = document.getElementById('hamburger');
     const n = document.getElementById('nav-menu');
     if(h) { h.addEventListener('click', () => { n.classList.toggle('open'); }); }
+</script>
+<script>
+const subServices = {
+    'Hammam': ['Hammam Traditionnel (60-90 min)','Hammam Privé Luxe (60-90 min)','Séance Vapeur (10-20 min)'],
+    'Massage': ['Massage Californien (1h - 1h30)','Massage Suédois (1h)','Deep Tissue Massage (1h - 1h30)'],
+    'Gommage Corps': ['Gommage Mécanique (45-60 min)','Gommage Enzymatique (45 min)','Gommage Corps Complet (60-90 min)']
+};
+function showSubService(service) {
+    const subGroup = document.getElementById('sub-service-group');
+    const subSelect = document.getElementById('sub-service');
+    if (service && subServices[service]) {
+        subSelect.innerHTML = '<option value="">— Choose a sub-service —</option>';
+        subServices[service].forEach(sub => {
+            const opt = document.createElement('option');
+            opt.value = sub; opt.textContent = sub;
+            subSelect.appendChild(opt);
+        });
+        subGroup.style.display = 'block';
+    } else {
+        subGroup.style.display = 'none';
+    }
+}
 </script>
 </body>
 </html>
