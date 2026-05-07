@@ -1,9 +1,37 @@
+import urllib.request
+import urllib.parse
+import json
+def send_telegram(booking):
+    try:
+        token   = '8710037618:AAEVRb2GXqOHTBHsZPPWwVTGmoNsLQj3tKs'
+        chat_id = '6005848408'
+        
+        message = f"""
+🌿 New Booking!
+👤 {booking.first_name} {booking.last_name}
+📞 {booking.phone}
+📧 {booking.email}
+💆 {booking.service}
+📅 {booking.date}
+⏰ {booking.time}
+        """.strip()
+
+        data = urllib.parse.urlencode({
+            'chat_id': chat_id,
+            'text': message,
+        }).encode()
+
+        url = f'https://api.telegram.org/bot{token}/sendMessage'
+        req = urllib.request.Request(url, data=data)
+        urllib.request.urlopen(req)
+        print("Telegram sent!")
+    except Exception as e:
+        print("Telegram error:", e)
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Booking, ContactMessage
-
 def index(request):
     return render(request, 'index.html')
 
@@ -60,7 +88,7 @@ def dashboard(request):
 def booking_view(request):
     if request.method == 'POST':
         try:
-            Booking.objects.create(
+            booking = Booking.objects.create(
                 user       = request.user if request.user.is_authenticated else None,
                 first_name = request.POST['first_name'],
                 last_name  = request.POST['last_name'],
@@ -70,16 +98,17 @@ def booking_view(request):
                 date       = request.POST['date'],
                 time       = request.POST['time'],
             )
+            send_telegram(booking)
             return redirect('booking_success')
         except Exception as e:
+            print("BOOKING ERROR:", e)
             return render(request, 'booking.html', {'error': str(e)})
-    
-    # Get service from URL if coming from services section
     selected_service = request.GET.get('service', '')
     return render(request, 'booking.html', {'selected_service': selected_service})
 
 def booking_success(request):
     return render(request, 'booking_success.html')
+
 
 # ── CONTACT ──
 def contact_view(request):
