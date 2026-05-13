@@ -33,7 +33,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Booking, ContactMessage
 def index(request):
-    return render(request, 'index.html')
+    site_url = request.build_absolute_uri('/')
+    return render(request, 'index.html', {'site_url': site_url})
 
 # ── REGISTER ──
 def register_view(request):

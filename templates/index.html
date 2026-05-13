@@ -166,6 +166,39 @@
             font-size:13px; line-height:1.9;
             color:rgba(255,255,255,0.45); max-width:250px;
         }
+        .footer-qr {
+            margin-top: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .footer-qr-image {
+            min-width: 130px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .footer-qr-image img {
+            display: block;
+            width: 130px;
+            height: 130px;
+        }
+        .footer-qr-text h4 {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .footer-qr-text p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.65);
+            max-width: 220px;
+        }
         .footer-col h4 {
             font-size:12px; font-weight:600; color:white;
             margin-bottom:22px; text-transform:uppercase; letter-spacing:0.1em;
@@ -824,6 +857,15 @@
             <div class="footer-brand">
                 <div class="brand-name">✦ Spa Center</div>
                 <p>Treat yourself to a moment of relaxation in an elegant and warm setting. Discover our exclusive treatments combining tradition and modernity for an unforgettable experience.</p>
+                <div class="footer-qr">
+                    <div class="footer-qr-image">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{ site_url|urlencode }}" alt="QR code for Spa Center website">
+                    </div>
+                    <div class="footer-qr-text">
+                        <h4>Scan to Visit</h4>
+                        <p>Scan the QR code to open our website instantly on your phone.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="footer-col">
@@ -948,6 +990,9 @@
     .footer-main { padding:30px 15px 0; }
     .footer-grid { grid-template-columns:1fr; gap:20px; }
     .footer-brand p { font-size:12px; }
+    .footer-qr { width:100%; justify-content:flex-start; }
+    .footer-qr-image { min-width: 120px; }
+    .footer-qr-image img { width: 120px; height: 120px; }
     .footer-col ul li a { font-size:12px; }
 
     .whatsapp-float { width:45px; height:45px; font-size:22px; bottom:20px; right:15px; }
